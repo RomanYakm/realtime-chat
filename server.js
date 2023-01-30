@@ -16,8 +16,8 @@ wss.on('connection', (ws) => {
   ws.on('message', (rawMessage) => {
     const { userName, newMessage } = JSON.parse(rawMessage);
     messages.push({ userName, newMessage });
-    Object.keys(clients).forEach(() => {
-      clients[id].send(JSON.stringify([{ userName, newMessage }]));
+    Object.keys(clients).forEach((key) => {
+      clients[key].send(JSON.stringify([{ userName, newMessage }]));
     });
   });
 
