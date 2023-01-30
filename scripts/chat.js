@@ -1,9 +1,19 @@
-import WebSocket from 'ws';
+const ws = new WebSocket('ws://localhost:8080');
+const chatUI = document.querySelector('.chat-list');
 
-const ws = new WebSocket('ws://127.0.0.1:5500');
-const chatUI = document.querySelector('.chat-window');
-ws.onmessage = (message) => {};
+ws.onmessage = (message) => {
+  const messages = JSON.parse(message.data);
+  messages.forEach((mes) => {
+    const messageEl = document.createElement('li');
+    messageEl.appendChild(
+      document.createTextNode(`${mes.userName}: ${mes.newMessage}`)
+    );
+    chatUI.appendChild(messageEl);
+  });
+};
+
 const send = (event) => {
+  event.preventDefault();
   const newMessage = document.querySelector('#message').value;
   const userName = document.querySelector('#name').value;
   ws.send(
