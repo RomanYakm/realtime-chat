@@ -5,9 +5,8 @@ ws.onmessage = (message) => {
   const messages = JSON.parse(message.data);
   messages.forEach((mes) => {
     const messageEl = document.createElement('li');
-    messageEl.appendChild(
-      document.createTextNode(`${mes.userName}: ${mes.newMessage}`)
-    );
+    messageEl.classList.add('chat-message');
+    messageEl.innerHTML = `<div><p>${mes.userName}</p><p>${mes.newMessage}</p></div><p>${mes.date}</p>`;
     chatUI.appendChild(messageEl);
   });
 };

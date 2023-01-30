@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+.page-content {
+  font-family: 'Noto Sans', sans-serif;
+}
+
 .container {
   max-width: 600px;
+  padding: 0;
 }
 
 .btn {
-  background: #43d9be;
+  background: #8590a9;
   color: white;
   outline: none;
   box-shadow: none;
@@ -12,8 +19,8 @@
 
 .btn:hover {
   background-color: white;
-  color: #43d9be;
-  border: 1px solid #43d9be;
+  color: #8590a9;
+  border: 1px solid #8590a9;
 }
 
 .btn:focus {
@@ -28,4 +35,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+}
+
+.chat-message {
+  display: flex;
+  background: linear-gradient(#eff4fc, #eef3fb);
+  padding: 15px;
+  border-bottom: 2px solid #e4e9f0;
+  color: #828699;
 }
