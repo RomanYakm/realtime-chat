@@ -8,8 +8,7 @@ wss.on('connection', (ws) => {
   const id = uuid();
   clients[id] = ws;
   const date = new Date().toLocaleTimeString();
-  console.log(date);
-  console.log(`new client ${id}`);
+  console.log(`new client ${id}`, date);
 
   ws.send(JSON.stringify(messages));
 
@@ -25,7 +24,7 @@ wss.on('connection', (ws) => {
 
   ws.on('close', () => {
     delete clients[id];
-    console.log(`Client is close ${id}`);
+    console.log(`Client is close ${id}`, date);
   });
 });
 console.log('server running');
